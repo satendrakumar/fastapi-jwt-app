@@ -13,7 +13,6 @@ app.include_router(auth_api_router)
 app.include_router(user_api_router)
 
 
-
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
     request_data = await request.body()
@@ -22,6 +21,7 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
         status_code=422,
         content={"error": exc.errors()},
     )
+
 
 if __name__ == "__main__":
     uvicorn.run(
