@@ -46,15 +46,6 @@ class Token(BaseModel):
     token_type: str
 
 
-class UserData(BaseModel):
-    username: str
-    email: str
-
-
-class TokenData(BaseModel):
-    username: str | None = None
-
-
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/login")
 
 
